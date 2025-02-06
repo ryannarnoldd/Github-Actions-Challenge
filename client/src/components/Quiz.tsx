@@ -14,7 +14,7 @@ const Quiz = () => {
       const questions = await getQuestions();
 
       if (!questions) {
-        throw new Error('something went wrong!');
+        throw new Error('Something went wrong!');
       }
 
       setQuestions(questions);
@@ -36,6 +36,7 @@ const Quiz = () => {
     }
   };
 
+
   const handleStartQuiz = async () => {
     await getRandomQuestions();
     setQuizStarted(true);
@@ -47,7 +48,7 @@ const Quiz = () => {
   if (!quizStarted) {
     return (
       <div className="p-4 text-center">
-        <button className="btn btn-primary d-inline-block mx-auto" onClick={handleStartQuiz}>
+        <button className="btn d-inline-block mx-auto" onClick={handleStartQuiz}>
           Start Quiz
         </button>
       </div>
@@ -56,7 +57,7 @@ const Quiz = () => {
 
   if (quizCompleted) {
     return (
-      <div className="card p-4 text-center">
+      <div className="card p-3 text-center">
         <h2>Quiz Completed</h2>
         <div className="alert alert-success">
           Your score: {score}/{questions.length}
@@ -70,7 +71,7 @@ const Quiz = () => {
 
   if (questions.length === 0) {
     return (
-      <div className="d-flex justify-content-center align-items-center vh-100">
+      <div className="d-flex justify-content-center align-items-center vh-101">
         <div className="spinner-border text-primary" role="status">
           <span className="visually-hidden">Loading...</span>
         </div>
@@ -87,7 +88,7 @@ const Quiz = () => {
       {currentQuestion.answers.map((answer, index) => (
         <div key={index} className="d-flex align-items-center mb-2">
           <button className="btn btn-primary" onClick={() => handleAnswerClick(answer.isCorrect)}>{index + 1}</button>
-          <div className="alert alert-secondary mb-0 ms-2 flex-grow-1">{answer.text}</div>
+          <div className="alert alert-secondary mb-0 flex-grow-1">{answer.text}</div>
         </div>
       ))}
       </div>

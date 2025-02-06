@@ -16,7 +16,7 @@ export const handlers = [
         question: 'What is 3 * 4?',
         answers: [
           { text: '12', isCorrect: true },
-          { text: '10', isCorrect: false },
+          { text: '11', isCorrect: false },
           { text: '15', isCorrect: false },
         ],
       },
