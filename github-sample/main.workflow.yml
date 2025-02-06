@@ -21,6 +21,7 @@ jobs:
       - name: CI and CD using Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
+        # Use the Node.js version specified in the matrix
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
       - name: install dependencies
